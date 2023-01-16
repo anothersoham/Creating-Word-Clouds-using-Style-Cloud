@@ -1,0 +1,25 @@
+import pandas as pd
+
+cs = pd.read_excel('TAGS Dataset for Online Safety Bill.xlsx', sheet_name='Archive')
+
+cs
+
+cs = pd.read_excel('TAGS Dataset for Online Safety Bill.xlsx', sheet_name='Archive', usecols= [2], nrows=17762)
+
+cs
+
+cs['text'].to_csv("tweets.csv", index= False)
+
+cs
+
+stylecloud.gen_stylecloud(file_path='tweets.csv',
+                         icon_name='fab fa-twitter',
+                         palette='colorbrewer.qualitative.Paired_3',
+                         background_color='white',
+                          gradient='horizontal',
+                          stopwords= True,
+                         custom_stopwords=['HTTPS','RT','T','C','O','1','UK', 'CO'])
+
+from IPython.display import Image
+Image('stylecloud.png')
+
